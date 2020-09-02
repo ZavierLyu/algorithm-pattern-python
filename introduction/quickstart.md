@@ -76,6 +76,27 @@ class Solution:
         return result
 ```
 
+```python
+# my solution
+class Solution:
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        N = len(nums)
+        ret = []
+        def backtrack(first, k, current):
+            if len(current) == k:
+                ret.append(current[:]) 
+                return 
+            for i in range(first, N):
+                current.append(nums[i])
+                backtrack(i+1, k, current)
+                current.pop()
+            return
+
+        for k in range(N + 1):
+            backtrack(0, k, [])
+        return ret
+```
+
 说明：后面会深入讲解几个典型的回溯算法问题，如果当前不太了解可以暂时先跳过
 
 ## 面试注意点
@@ -92,5 +113,5 @@ class Solution:
 
 ## 练习
 
-- [ ] [strStr](https://leetcode-cn.com/problems/implement-strstr/)
-- [ ] [subsets](https://leetcode-cn.com/problems/subsets/)
+- [x] [strStr](https://leetcode-cn.com/problems/implement-strstr/)
+- [x] [subsets](https://leetcode-cn.com/problems/subsets/)

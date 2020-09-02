@@ -50,6 +50,21 @@ if a <= b < c:
 
 Python 中排序主要使用 sorted() 和 .sort() 函数，在[官网](https://docs.python.org/3/howto/sorting.html)有详细介绍，大家可以自行阅读。
 
+```python
+# 返回一个新的array
+# 对任何iterable的对象都能适用
+sorted([5,2,3,1,4]) # return: [1,2,3,4,5]
+sorted(student_tuples, key=lambda student: student[2]) 
+# return: [('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
+```python 
+# 在原有的list上进行排序
+# list.sort(cmp=None, key=None, reverse=False)
+l = [5,2,3,1,4]
+l.sort() # return void
+# l = [1,2,3,4,5]
+```
+
 #### 二分查找和插入
 
 Python 自带的 [bisect](https://docs.python.org/3/library/bisect.html) 库可以实现二分查找和插入，非常方便。
